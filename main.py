@@ -2,7 +2,6 @@ import matplotlib.pyplot as plt
 from sympy import *
 import matplotlib
 import numpy as np
-from readcol import fgetcols
 xf=0.1
 yf=1.0
 zf=10.0
