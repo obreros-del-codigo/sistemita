@@ -1,29 +1,37 @@
-import matplotlib.pyplot as plt #load plot library
+import matplotlib.pyplot as plt 
+from sympy import *
+import matplotlib
+import numpy as np
+from readcol import fgetcols
+xf=0.1
+yf=1.0
+zf=10.0
+with open('formulae.dat') as f:
+    formulae=f.readlines()
+    formulae_str=formulae[0]
+x = Symbol("x")
+y=sympify(formulae_str)
+yprime=y.diff(x)
+f=lambdify(x,y,"numpy")
 
-x=float(input("Numero:"))
-y=float(input("Numero:"))
-z=float(input("Numero:"))
-n=int(input("iteraciones"))    
-      
-      
-xl=[x]
-yl=[y]
-zl=[z]
+range=range(7)
 
-for i in range(n):
-    x=x*x+1
-    y=y*y+1
-    z=z*z+1
-    xl.append(x)
-    yl.append(y)
-    zl.append(z)
+      
+xl=[]
+yl=[]
+zl=[]
+for i in range:
+    zf = f(zf)
+    zl.append(zf)
+for i in range:
+    xf = f(xf)
+    xl.append(xf)
+for i in range:
+    yf = f(yf)
+    yl.append(yf)
 gix,ax=plt.subplots()    
 ax.set_yscale("log")
 plt.plot(xl)
 plt.plot(yl)
 plt.plot(zl)
 plt.show()
-
-
-
-    
