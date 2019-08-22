@@ -3,6 +3,8 @@ from sympy import *
 import matplotlib
 import numpy as np
 import sys
+from plot import plotting
+quererplot=input("¿Quieres que se guarde una foto de tu ecuación? [y/n]") 
 xf=0.1
 yf=1.0
 zf=10.0
@@ -10,6 +12,7 @@ file_flag = False
 formulae_str = 'x'
 equation_flag=False
 n=len(sys.argv)
+
 for i in range(n):
     if '-f' in sys.argv[i]:
         file_flag =True
@@ -52,3 +55,5 @@ plt.plot(xl)
 plt.plot(yl)
 plt.plot(zl)
 plt.show()
+if quererplot == "y":
+    plotting(xl,yl,zl,formulae_str[:-1])
