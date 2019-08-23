@@ -1,6 +1,6 @@
-import main
+import matplotlib.pyplot as plt 
 
-def foo_graph()
+def foo_graph():
     gix,ax=plt.subplots()    
     ax.set_yscale("log")
     plt.plot(xl)

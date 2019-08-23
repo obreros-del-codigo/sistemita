@@ -1,7 +1,6 @@
-import main
+import sys
 
 def foo_input():
-    print("here")
     xf=0.1
     yf=1.0
     zf=10.0

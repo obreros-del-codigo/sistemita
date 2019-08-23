@@ -1,4 +1,6 @@
-import main
+from sympy import *
+import numpy as np
+
 
 def foo_iterations():
     x = Symbol("x")
