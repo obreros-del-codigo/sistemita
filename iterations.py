@@ -1,25 +1,19 @@
 from sympy import *
 import numpy as np
 
+from sympy import *
 
-def foo_iterations():
+def foo_iterations(a,b,x0,i,n,formulae_str):
+    inicial= x0
     x = Symbol("x")
     y=sympify(formulae_str)
     yprime=y.diff(x)
     f=lambdify(x,y,"numpy")
 
-    range=range(7)
+    rangei=range(7)
 
     xl=[]
-    yl=[]
-    zl=[]
-    for i in range:
-        zf = f(zf)
-        zl.append(zf)
-    for i in range:
-        xf = f(xf)
-        xl.append(xf)
-    for i in range:
-        yf = f(yf)
-        yl.append(yf)
-    return iterations
+    for i in rangei:
+        inicial = f(inicial)
+        xl.append(inicial)
+    return xl
