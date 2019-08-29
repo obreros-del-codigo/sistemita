@@ -1,66 +1,54 @@
 import sys
 
 def foo_input():
-    print("here")
     file_flag = False
     formulae_str = 'x'
     equation_flag=False
     variable_flag=False
     cycles=len(sys.argv)
-    inputs=[]
-    for i in range(cycles):
-        if '-f' in sys.argv[i]:
+    x0=a0=b0=n0=1.0
+    x1=a1=b1=n1=1.0
+    dx=da=db=dn=1.0
+    
+    it=10
+    
+    cycles=len(sys.argv)
+    
+    Z=10
+    
+    
+    for i,v in enumerate(cycles):
+        if '-f'==v:
             file_flag =True
             filename=sys.argv[i+1]
-            break
-        if '-e' in sys.argv[i]:
+            
+        if '-e'==v:
             equation_flag =True
             formulae_str=sys.argv[i+1]
-            inputs.append(formulae_str)
-            break
-#        else:
-#            raise TypeError "no hay ecuacion"
-        if '-n' in sys.argv[i]:
-            variable_flag =True
-            n=sys.argv[i+1]
-            inputs.append(n)
-            try:
-                for i in range(int(n)-1):
-                   formulae_str+="*x"
-            except:
-                formulae_str=1
-        else:
-            inputs.append(2)
-            formulae_str = "x*x"
-
-        if '-a' in sys.argv[i]:
-            variable_flag =True
-            a=sys.argv[i+1]
-            inputs.append(a)
-            formulae_str=a+"*"+formulae_str
-        else:
-            inputs.append(1)
-
-        if '-b' in sys.argv[i]:
-            variable_flag =True
-            b=sys.argv[i+1]
-            inputs.append(b)
-            formulae_str = formulae_str+"+"+b
-        else:
-            inputs.append(1)
             
-        if '-x0' in sys.argv[i]:
-            variable_flag =True
+        if '-n' ==v:
+            n0=sys.argv[i+1]
+            n1=sys.argv[i+2]
+            dn=sys.argv[i+3]
+            
+        if '-a' ==v:
+            a0=sys.argv[i+1]
+            a1=sys.argv[i+2]
+            da=sys.argv[i+3]
+        if '-b' ==v:
+            b0=sys.argv[i+1]
+            b1=sys.argv[i+2]
+            db=sys.argv[i+3]
+            
+        if '-x0'==v:
             x0=sys.argv[i+1]
-            inputs.append(x0)
-        else:
-            inputs.append(0.1)
-        if '-i' in sys.argv[i]:
-            variable_flag =True
+            x1=sys.argv[i+2]
+            dx=sys.argv[i+3]
+
+        if '-i' ==v:
             it=sys.argv[i+1]
-            inputs.append(it)
-        else:
-            inputs.append(10)
+
+
 
 
     if file_flag:
@@ -69,11 +57,14 @@ def foo_input():
             formulae_str=formulae[0]
             print("Using archive mode with "+formulae_str)
     if equation_flag:
-        inputs.pop()
         print("Using equation:",formulae_str)
-    #a,b,x0,i,n
-    if variable_flag:
-        inputs=inputs[:5]
         print("Using equation ",formulae_str,"with a:",a,",b:",b,"n:",n,", initial conditions:",x0,", iterations:",it)
-    return inputs,formulae_str
+        
+    A=[a0,a1,da]
+    B=[b0,b1,db]
+    N=[n0,n1,dn]
+    X0=[x0,x01,dx0]
+
+
+    return formulae_str,A,B,N,X0
     

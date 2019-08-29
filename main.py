@@ -11,11 +11,11 @@ from graph import *
 
 quererplot=input("¿Quieres que se guarde una foto de tu ecuación? [y/n]") 
 
-inputs,formulae_str=foo_input()
+formulae_str,A,B,N,X0=foo_input()
 print(inputs)
 print(formulae_str)
+fig, ax = plt.subplots()
 
-n,a,b,x0,i=inputs
 
 
 z,x,y=foo_iterations(a,b,x0,i,n,formulae_str)
