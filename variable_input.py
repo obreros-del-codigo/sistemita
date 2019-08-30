@@ -1,4 +1,5 @@
 import sys
+import numpy as np
 
 def foo_input():
     file_flag = False
@@ -11,13 +12,11 @@ def foo_input():
     dx=da=db=dn=1.0
     
     it=10
-    
-    cycles=len(sys.argv)
+
     
     Z=10
-    
-    
-    for i,v in enumerate(cycles):
+
+    for i,v in enumerate(sys.argv):
         if '-f'==v:
             file_flag =True
             filename=sys.argv[i+1]
@@ -58,13 +57,22 @@ def foo_input():
             print("Using archive mode with "+formulae_str)
     if equation_flag:
         print("Using equation:",formulae_str)
-        print("Using equation ",formulae_str,"with a:",a,",b:",b,"n:",n,", initial conditions:",x0,", iterations:",it)
-        
+                
     A=[a0,a1,da]
     B=[b0,b1,db]
     N=[n0,n1,dn]
-    X0=[x0,x01,dx0]
-
-
-    return formulae_str,A,B,N,X0
+    X0=[x0,x1,dx]
+    A=[float(i) for i in A]
+    B=[float(i) for i in B]
+    N=[float(i) for i in N]
+    X0=[float(i) for i in X0]
+    A=np.arange(A[0],A[1]+1,A[2])
+    B=np.arange(B[0],B[1]+1,B[2])
+    N=np.arange(N[0],N[1]+1,N[2])
+    X0=np.arange(X0[0],A[1]+1,X0[2])
+    print(A)
+    print(B)
+    print(N)
+    print(X0)
+    return formulae_str,A,B,N,X0,it
     
