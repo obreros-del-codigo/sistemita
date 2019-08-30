@@ -1,6 +1,16 @@
 import sys
 import numpy as np
 
+
+def barrido(M):
+    i=M[2]+M[0]
+    L=[M[0]]
+    while M[1]<i:
+        L.append(i)
+        i+=M[2]
+    return L
+
+
 def foo_input():
     file_flag = False
     formulae_str = 'x'
@@ -66,10 +76,11 @@ def foo_input():
     B=[float(i) for i in B]
     N=[float(i) for i in N]
     X0=[float(i) for i in X0]
-    A=np.arange(A[0],A[1]+1,A[2])
-    B=np.arange(B[0],B[1]+1,B[2])
-    N=np.arange(N[0],N[1]+1,N[2])
-    X0=np.arange(X0[0],A[1]+1,X0[2])
+    barrido(A)
+    barrido(B)
+    barrido(N)
+    barrido(X0)
+
     print(A)
     print(B)
     print(N)
