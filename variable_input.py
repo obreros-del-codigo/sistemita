@@ -77,14 +77,11 @@ def foo_input():
     B=[float(i) for i in B]
     N=[float(i) for i in N]
     X0=[float(i) for i in X0]
+
     A=barrido(A)
     B=barrido(B)
     N=barrido(N)
     X0=barrido(X0)
 
-    print(A)
-    print(B)
-    print(N)
-    print(X0)
     return formulae_str,A,B,N,X0,it
     
