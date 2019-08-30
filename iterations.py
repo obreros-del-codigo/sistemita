@@ -7,12 +7,12 @@ from plot import plotting
 
 def foo_dynamic(formulae_str,a0,b0,n0,x0,it):
     x,a,b,n=symbols("x a b n")
-    print(a,b,n,x,it)
     y = sympify(formulae_str)
     y = y.subs(a,a0)
     y = y.subs(b,b0)
     y = y.subs(n,n0)
-    
+    print(y)
+
     f=lambdify(x,y,"numpy")
 
     z = x0
@@ -24,7 +24,6 @@ def foo_dynamic(formulae_str,a0,b0,n0,x0,it):
         y1.append(z)
 
     return y1
-
 
 def foo_iterations(formulae_str,A,B,N,X0, it):
     fig, ax = plt.subplots()
