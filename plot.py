@@ -7,7 +7,7 @@ def plotting(fig, ax,	y1,title,filename,caption):
     ax.set(xlabel='i',ylabel='$x_i$',
            title=title)
     ax.grid()
-    pylab.legend(loc='upper left')
+    #pylab.legend(loc='upper left')
 
     fig.savefig(title+'.png')
     
