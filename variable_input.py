@@ -14,16 +14,15 @@ def barrido(M):
 
 def foo_input():
     file_flag = False
-    formulae_str = 'x'
+
     equation_flag=False
-    variable_flag=False
-    cycles=len(sys.argv)
+
+    formulae_str = 'x'
     x0=a0=b0=n0=1.0
     x1=a1=b1=n1=1.0
     dx=da=db=dn=1.0
     
     it=10
-
     
     Z=10
 

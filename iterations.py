@@ -11,6 +11,7 @@ def foo_dynamic(formulae_str,a0,b0,n0,x0,it):
     y = y.subs(a,a0)
     y = y.subs(b,b0)
     y = y.subs(n,n0)
+
     print(y)
 
     f=lambdify(x,y,"numpy")
