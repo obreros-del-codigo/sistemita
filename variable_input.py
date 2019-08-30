@@ -5,7 +5,8 @@ import numpy as np
 def barrido(M):
     i=M[2]+M[0]
     L=[M[0]]
-    while M[1]<i:
+    while M[1]>=i:
+        print(M[1],i)
         L.append(i)
         i+=M[2]
     return L
@@ -76,10 +77,10 @@ def foo_input():
     B=[float(i) for i in B]
     N=[float(i) for i in N]
     X0=[float(i) for i in X0]
-    barrido(A)
-    barrido(B)
-    barrido(N)
-    barrido(X0)
+    A=barrido(A)
+    B=barrido(B)
+    N=barrido(N)
+    X0=barrido(X0)
 
     print(A)
     print(B)
