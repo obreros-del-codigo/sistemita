@@ -14,15 +14,19 @@ def barrido(M):
 
 def foo_input():
     file_flag = False
-
-    equation_flag=False
-
     formulae_str = 'x'
+    equation_flag=False
+    variable_flag=False
+    dynamic_flag=False
+    noise=False
+    cycles=len(sys.argv)
     x0=a0=b0=n0=1.0
     x1=a1=b1=n1=1.0
     dx=da=db=dn=1.0
+    k= 0.0
     
     it=10
+
     
     Z=10
 
@@ -56,7 +60,13 @@ def foo_input():
 
         if '-i' ==v:
             it=sys.argv[i+1]
-
+        
+        if "-dynamic" in sys.argv[i]:
+            dynamic_flag=True
+        
+        if "-random" in sys.argv[i]:
+            noise=True
+            k=float(sys.argv[i+1])
 
 
 
@@ -68,6 +78,13 @@ def foo_input():
     if equation_flag:
         print("Using equation:",formulae_str)
                 
+    if dynamic_flag:
+        print("Using Dynamic Evaluation")
+        
+    if noise:
+        print("*****Add1nj N01Zz3 t8 sYz7eM*****")
+    
+    
     A=[a0,a1,da]
     B=[b0,b1,db]
     N=[n0,n1,dn]
@@ -82,5 +99,5 @@ def foo_input():
     N=barrido(N)
     X0=barrido(X0)
 
-    return formulae_str,A,B,N,X0,it
+    return formulae_str,A,B,N,X0,it,dynamic_flag,k
     
