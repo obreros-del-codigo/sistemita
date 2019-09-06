@@ -19,14 +19,18 @@ def foo_input():
     variable_flag=False
     dynamic_flag=False
     noise=False
+    histo_flag=False
+    obs=False
+    
+    
     cycles=len(sys.argv)
     x0=a0=b0=n0=1.0
     x1=a1=b1=n1=1.0
     dx=da=db=dn=1.0
     k= 0.0
-    
+    bind=1
     it=10
-
+    
     
     Z=10
 
@@ -68,7 +72,11 @@ def foo_input():
             noise=True
             k=float(sys.argv[i+1])
 
-
+        if "-histo" in sys.argv[i]:
+            histo_flag=True
+            bind=int(sys.argv[i+1])
+        if "-obs" in sys.argv[i]:
+            obs=True
 
     if file_flag:
         with open('formulae.dat') as f:
@@ -83,6 +91,8 @@ def foo_input():
         
     if noise:
         print("*****Add1nj N01Zz3 t8 sYz7eM*****")
+    if histo_flag:
+        print("Histogram mode activated")
     
     
     A=[a0,a1,da]
@@ -99,5 +109,5 @@ def foo_input():
     N=barrido(N)
     X0=barrido(X0)
 
-    return formulae_str,A,B,N,X0,it,dynamic_flag,k
+    return formulae_str,A,B,N,X0,it,dynamic_flag,k, bind,histo_flag, obs
     
